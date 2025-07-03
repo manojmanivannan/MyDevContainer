@@ -1,0 +1,19 @@
+services:
+  devcontainer:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    volumes:
+      - ../..:/workspaces:cached
+      - ~/.kube:/home/vscode/.kube:cached
+
+    command: sleep infinity
+    # depends_on:
+    #   - phoenix
+    #   - postgres
+    #   - chromadb
+    #   - gitea
+    # environment:
+    #   SOME_ENV_VAR: "value"
+
+

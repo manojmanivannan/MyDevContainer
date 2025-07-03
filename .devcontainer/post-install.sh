@@ -1,0 +1,16 @@
+#!/bin/bash
+set -e
+
+WORKSPACE_DIR=$(pwd)
+WORKSPACE_FOLDER=${WORKSPACE_FOLDER:-$WORKSPACE_DIR}
+
+export UV_PROJECT_ENVIRONMENT="${WORKSPACE_FOLDER}/.venv"
+export UV_CACHE_DIR="${WORKSPACE_FOLDER}/.cache"
+
+
+pushd "$WORKSPACE_FOLDER"
+uv sync
+popd
+
+
+echo "Done!"
