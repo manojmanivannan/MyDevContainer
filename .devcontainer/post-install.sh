@@ -21,6 +21,7 @@ sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.2
     -p https://github.com/marlonrichert/zsh-autocomplete \
     -p https://github.com/zdharma-continuum/fast-syntax-highlighting \
     -p virtualenv \
+    -p git \
     -t amuse
 
 # replace amuse.zsh-theme with this content
