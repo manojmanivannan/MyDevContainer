@@ -13,15 +13,16 @@ uv sync
 popd
 
 echo "Setup ZSH"
+SNIPPET="export PROMPT_COMMAND='history -a' && export HISTFILE=/commandhistory/.zsh_history"
 
 sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.2.1/zsh-in-docker.sh)" -- \
     -p https://github.com/unixorn/fzf-zsh-plugin \
     -p https://github.com/zsh-users/zsh-autosuggestions \
     -p https://github.com/zsh-users/zsh-syntax-highlighting \
-    -p https://github.com/marlonrichert/zsh-autocomplete \
     -p https://github.com/zdharma-continuum/fast-syntax-highlighting \
     -p virtualenv \
     -p git \
+    -a "$SNIPPET" \
     -t amuse
 
 # replace amuse.zsh-theme with this content
