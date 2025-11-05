@@ -13,6 +13,7 @@ uv sync
 popd
 
 echo "Setup ZSH"
+SNIPPET="export PROMPT_COMMAND='history -a' && export HISTFILE=/commandhistory/.zsh_history"
 
 sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.2.1/zsh-in-docker.sh)" -- \
     -p https://github.com/unixorn/fzf-zsh-plugin \
@@ -21,6 +22,7 @@ sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.2
     -p https://github.com/zdharma-continuum/fast-syntax-highlighting \
     -p virtualenv \
     -p git \
+    -a "$SNIPPET" \
     -t amuse
 
 # replace amuse.zsh-theme with this content
@@ -49,6 +51,4 @@ ZSH_THEME_VIRTUALENV_PREFIX=$ZSH_THEME_VIRTUAL_ENV_PROMPT_PREFIX
 ZSH_THEME_VIRTUALENV_SUFFIX=$ZSH_THEME_VIRTUAL_ENV_PROMPT_SUFFIX
 EOF
 
-# Set up persistent history
-echo "HISTFILE=/commandhistory/.zsh_history" >> ~/.zshrc
 echo "Done!"

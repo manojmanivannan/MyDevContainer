@@ -32,6 +32,7 @@
     "vscode": {
       // Set *default* container specific settings.json values on container create.
       "settings": {
+        "remote.autoForwardPorts": false,
         "terminal.integrated.defaultProfile.linux": "zsh",
         "terminal.integrated.profiles.linux": {
           "bash": {
@@ -72,7 +73,6 @@
   "initializeCommand": "bash ./.devcontainer/pre-start.sh",
   // Use 'postCreateCommand' to run commands after the container is created.
   "postCreateCommand": {
-    "Fix volume permissions": "sudo chown -R $(whoami): /commandhistory",
     "post install": "bash ./.devcontainer/post-install.sh"
   },
   "postStartCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}"
