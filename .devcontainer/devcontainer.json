@@ -69,6 +69,7 @@
   },
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   // "forwardPorts": [],
+  "initializeCommand": "bash ./.devcontainer/pre-start.sh",
   // Use 'postCreateCommand' to run commands after the container is created.
   "postCreateCommand": "bash ./.devcontainer/post-install.sh",
   "postStartCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}"
