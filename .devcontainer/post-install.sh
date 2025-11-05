@@ -49,4 +49,6 @@ ZSH_THEME_VIRTUALENV_PREFIX=$ZSH_THEME_VIRTUAL_ENV_PROMPT_PREFIX
 ZSH_THEME_VIRTUALENV_SUFFIX=$ZSH_THEME_VIRTUAL_ENV_PROMPT_SUFFIX
 EOF
 
+# Set up persistent history
+echo "HISTFILE=/commandhistory/.zsh_history" >> ~/.zshrc
 echo "Done!"

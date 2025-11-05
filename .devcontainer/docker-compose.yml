@@ -5,8 +5,6 @@ services:
       dockerfile: .devcontainer/Dockerfile
     volumes:
       - ../..:/workspaces:cached
-      - ~/.zsh_history_devcontainer:/home/vscode/.zsh_history
-
     command: sleep infinity
     # depends_on:
     #   - postgres

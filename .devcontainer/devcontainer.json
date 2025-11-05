@@ -26,7 +26,7 @@
   },
   "mounts": [
     "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind",
-    "source=devcontainer-bashhistory,target=/commandhistory,type=volume"
+    "source=zshhistory,target=/commandhistory,type=volume"
   ],
   "customizations": {
     "vscode": {
@@ -71,7 +71,10 @@
   // "forwardPorts": [],
   "initializeCommand": "bash ./.devcontainer/pre-start.sh",
   // Use 'postCreateCommand' to run commands after the container is created.
-  "postCreateCommand": "bash ./.devcontainer/post-install.sh",
+  "postCreateCommand": {
+    "Fix volume permissions": "sudo chown -R $(whoami): /commandhistory",
+    "post install": "bash ./.devcontainer/post-install.sh"
+  },
   "postStartCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}"
   // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
   //"overrideCommand": false,
