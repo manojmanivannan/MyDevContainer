@@ -32,3 +32,6 @@ dev = [
 lint = [
   "ruff"
 ]
+
+[project.scripts]
+project_name = "app.main:main"
