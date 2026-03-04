@@ -18,7 +18,7 @@
     "ghcr.io/devcontainers/features/git": {},
     // "ghcr.io/devcontainers/features/github-cli": {},
     // "ghcr.io/devcontainers/features/kubectl-helm-minikube": {},
-    "ghcr.io/devcontainers-extra/features/apt-packages:1": {
+    "ghcr.io/devcontainers-extra/features/apt-packages": {
       "packages": "vim"
     },
     "ghcr.io/mikaello/devcontainer-features/modern-shell-utils:2": {},
