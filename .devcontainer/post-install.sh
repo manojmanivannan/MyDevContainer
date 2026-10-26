@@ -13,15 +13,17 @@ uv sync
 popd
 
 echo "Setup ZSH"
+SNIPPET="export PROMPT_COMMAND='history -a' && export HISTFILE=/commandhistory/.zsh_history"
+
 sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.2.1/zsh-in-docker.sh)" -- \
     -p https://github.com/unixorn/fzf-zsh-plugin \
     -p https://github.com/zsh-users/zsh-autosuggestions \
     -p https://github.com/zsh-users/zsh-syntax-highlighting \
-    -p https://github.com/marlonrichert/zsh-autocomplete \
     -p https://github.com/zdharma-continuum/fast-syntax-highlighting \
     -p virtualenv \
     -p git \
-    -t amuse
+    -a "$SNIPPET" \
+    -t amuse || true
 
 # replace amuse.zsh-theme with this content
 cat << 'EOF' > ~/.oh-my-zsh/themes/amuse.zsh-theme
@@ -40,7 +42,7 @@ ZSH_THEME_RUBY_PROMPT_SUFFIX="›%{$reset_color%}"
 
 PROMPT='%{$fg_bold[green]%}%~%{$reset_color%}$(git_prompt_info)$(virtualenv_prompt_info) $ '
 
-RPROMPT='⌚ %{$fg_bold[red]%}%*%{$reset_color%} $(ruby_prompt_info)'
+#RPROMPT='⌚ %{$fg_bold[red]%}%*%{$reset_color%} $(ruby_prompt_info)'
 
 VIRTUAL_ENV_DISABLE_PROMPT=0
 ZSH_THEME_VIRTUAL_ENV_PROMPT_PREFIX=" %{$fg[green]%}🐍 "

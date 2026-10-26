@@ -3,7 +3,7 @@ name = "Project"
 version = "0.1.0"
 description = "Project Application"
 authors = [
-    {name = "Manoj Manivannan",email = "manoj.manivannan@infovista.com"}
+    {name = "Manoj Manivannan",email = "manojm18@live.in"}
 ]
 readme = "README.md"
 requires-python = ">=3.11,<3.13"
@@ -32,3 +32,6 @@ dev = [
 lint = [
   "ruff"
 ]
+
+[project.scripts]
+project_name = "app.main:main"
